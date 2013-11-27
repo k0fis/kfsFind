@@ -1,12 +1,13 @@
 package kfs.kfsFind;
 
 import java.io.File;
+import java.io.FileFilter;
 
 /**
  *
  * @author pavedrim
  */
-public class kfsTwoFiles {
+public class kfsTwoFiles implements FileFilter {
 
     private final long st;
     private final long nd;
@@ -42,6 +43,7 @@ public class kfsTwoFiles {
                 && (nd > time) || (includeNd && (nd == time)));
     }
 
+    @Override
     public boolean accept(File file) {
         return accept(file.lastModified());
     }
